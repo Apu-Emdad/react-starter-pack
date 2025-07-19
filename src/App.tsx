@@ -1,7 +1,8 @@
+// App.tsx
 import { Outlet } from "react-router-dom";
 import AppLayout from "./layout/AppLayout";
 import { useEffect, useState } from "react";
-import api from "./utils/axios";
+import api, { injectLoaderSetter } from "./utils/axios";
 import { AppContext } from "./context/app-context";
 
 export type TUser = {
@@ -15,6 +16,7 @@ function App() {
   const [loader, setLoader] = useState<boolean>(false);
 
   useEffect(() => {
+    injectLoaderSetter(setLoader);
     const fetchUsers = async () => {
       try {
         const res = await api.get<TUser[]>("/users");
