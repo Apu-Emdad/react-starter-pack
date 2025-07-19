@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0, 0%, 100%;
+    --foreground: 0, 0%, 100%;
+
+    --card: 0, 0%, 100%;
+    --card-foreground: 222.2, 84%, 4.9%;
+    --card-background: 0, 0%, 0%, 0.5;
+
+    --popover: 0, 0%, 100%;
+    --popover-foreground: 222.2, 84%, 4.9%;
+
+    --primary: 167, 100%, 44%;
+    --primary-foreground: 0, 0%, 100%, 0.64;
+    --primary-background: 241, 91%, 5%, 1;
+
+    --gray: 0, 0%, 70%;
+
+    --light-gray: 0, 0%, 95%;
+
+    --dark-gray: 240, 3%, 32%;
+
+    --secondary: 210, 40%, 96.1%;
+    --secondary-foreground: 222.2, 47.4%, 11.2%;
+
+    --muted: 210, 40%, 96.1%;
+    --muted-foreground: 215.4, 16.3%, 46.9%;
+
+    --accent: 210, 40%, 96.1%;
+    --accent-foreground: 222.2, 47.4%, 11.2%;
+
+    --destructive: 0, 84.2%, 60.2%;
+    --destructive-foreground: 210, 40%, 98%;
+
+    --border: 214.3, 31.8%, 91.4%;
+    --input: 214.3, 31.8%, 91.4%;
+    --ring: 222.2, 84%, 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2, 84%, 4.9%;
+    --foreground: 210, 40%, 98%;
+
+    --card: 222.2, 84%, 4.9%;
+    --card-foreground: 210, 40%, 98%;
+
+    --popover: 222.2, 84%, 4.9%;
+    --popover-foreground: 210, 40%, 98%;
+
+    --primary: 210, 40%, 98%;
+    --primary-foreground: 222.2, 47.4%, 11.2%;
+
+    --secondary: 217.2, 32.6%, 17.5%;
+    --secondary-foreground: 210, 40%, 98%;
+
+    --muted: 217.2, 32.6%, 17.5%;
+    --muted-foreground: 215, 20.2%, 65.1%;
+
+    --accent: 217.2, 32.6%, 17.5%;
+    --accent-foreground: 210, 40%, 98%;
+
+    --destructive: 0, 62.8%, 30.6%;
+    --destructive-foreground: 210, 40%, 98%;
+
+    --border: 217.2, 32.6%, 17.5%;
+    --input: 217.2, 32.6%, 17.5%;
+    --ring: 212.7, 26.8%, 83.9%;
+  }
+}
+
+@layer base {
+
+  h * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gray text-foreground;
+  }
+
+  html {
+    font-family: "roboto";
+  }
+
+  h1 {
+    @apply text-[64px] font-extrabold;
+  }
+
+  h2 {
+    @apply text-[48px] font-extrabold;
+  }
+
+  h3 {
+    @apply text-[32px] font-bold;
+  }
+
+  h4 {
+    @apply text-[24px] font-semibold;
+  }
+
+  h5 {
+    @apply text-[16px] font-medium;
+  }
+
+  p {
+    @apply text-[18px] font-normal;
+    font-family: "Plus Jakarta Sans";
+  }
+
+  .logo-gradient {
+    background: linear-gradient(277.3deg, #00d4fc 6.75%, #00fee3 95.73%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .button-gradient {
+    background: linear-gradient(277.3deg, #00D4FC 6.75%, #00FEE3 95.73%);
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    color: #252525;
+    font-size: 16px;
+    padding: 24px 40px;
+    font-weight: 700;
+  }
+}
