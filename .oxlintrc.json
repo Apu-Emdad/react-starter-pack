@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "react-hooks"],
+  "rules": {
+    "typescript/no-explicit-any": "off",
+    "typescript/no-floating-promises": "error"
+  },
+  "overrides": [
+    {
+      "files": ["src/shared/components/ui/FormFields.tsx"],
+      "rules": {
+        "react/refs": "off"
+      }
+    }
+  ],
+  "env": {
+    "browser": true
+  },
+  "ignorePatterns": ["dist/**"]
+}

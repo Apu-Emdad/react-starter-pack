@@ -1,0 +1,16 @@
+name: react-starter-pack
+
+services:
+  web:
+    build:
+      context: .
+      target: runtime
+      args:
+        # Baked into the build: the address the browser uses to reach the API
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:3000}
+    image: react-starter-pack-web
+    container_name: react-starter-pack-web
+    restart: unless-stopped
+    # 5173 matches WEB_ORIGIN in the API's .env, which CORS and the refresh cookie need
+    ports:
+      - '5173:4173'

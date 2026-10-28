@@ -1,0 +1,81 @@
+.root {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+}
+
+@media (min-width: 62em) {
+  .root {
+    grid-template-columns: 1.05fr 1fr;
+  }
+}
+
+.brand {
+  position: relative;
+  display: none;
+  overflow: hidden;
+  padding: 40px;
+  color: #fff;
+  background: #0e0b2e;
+}
+
+@media (min-width: 62em) {
+  .brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.blobOne {
+  top: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  background: #7c3aed;
+  opacity: 0.7;
+}
+
+.blobTwo {
+  bottom: -100px;
+  left: -60px;
+  width: 280px;
+  height: 280px;
+  background: #c026d3;
+  opacity: 0.45;
+}
+
+.blobThree {
+  top: 40%;
+  left: 30%;
+  width: 220px;
+  height: 220px;
+  background: #4f46e5;
+  opacity: 0.5;
+}
+
+.content {
+  position: relative;
+}
+
+.glass {
+  width: 240px;
+  padding: 16px;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}

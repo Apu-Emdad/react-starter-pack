@@ -1,0 +1,55 @@
+# =============================================================================
+# CI PIPELINE: lint, typecheck, test, build
+# Runs on every PR and every push to main. Nothing is deployed.
+# =============================================================================
+
+name: CI
+
+on:
+  push:
+    branches: [main] # every merge/push to main
+  pull_request: # every PR
+
+# Only one run at a time. A second run waits for the first to finish.
+concurrency:
+  group: CI
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # Provides Yarn 4 from package.json. Must run before setup-node.
+      - name: Enable Corepack
+        run: corepack enable
+
+      # Keep in sync with .nvmrc. "cache: yarn" makes installs faster.
+      - name: Use Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: yarn
+
+      # --immutable fails if yarn.lock is out of date.
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Format check
+        run: yarn format:check
+
+      - name: Typecheck
+        run: yarn typecheck
+
+      - name: Tests
+        run: yarn test # the API is faked with MSW, no backend needed
+
+      - name: Build
+        run: yarn build

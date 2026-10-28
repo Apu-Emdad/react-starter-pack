@@ -1,0 +1,22 @@
+node_modules/
+dist/
+coverage/
+*.log
+*.tsbuildinfo
+
+# dotenv
+.env
+.env.*
+!.env.example
+
+# yarn 4
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+.vite/
+.DS_Store
