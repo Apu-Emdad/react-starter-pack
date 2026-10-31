@@ -19,6 +19,10 @@ export const AppLayout = () => {
       }}
       padding="lg"
       withBorder={false}
+      styles={{
+        header: { background: 'var(--app-shell-bg)' },
+        navbar: { background: 'var(--app-shell-bg)' },
+      }}
     >
       <AppShell.Header>
         <Header navOpened={navOpened} onToggleNav={toggle} />
@@ -29,7 +33,11 @@ export const AppLayout = () => {
           if ((event.target as HTMLElement).closest('a')) close();
         }}
       >
-        <Sidebar expanded={expanded} onToggleExpanded={toggleExpanded} />
+        <Sidebar
+          expanded={expanded}
+          onToggleExpanded={toggleExpanded}
+          onClose={close}
+        />
       </AppShell.Navbar>
       <AppShell.Main>
         <Outlet />

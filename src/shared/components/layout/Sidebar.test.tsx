@@ -53,7 +53,13 @@ const renderSidebar = ({
     [
       {
         path: '*',
-        element: <Sidebar expanded={expanded} onToggleExpanded={() => {}} />,
+        element: (
+          <Sidebar
+            expanded={expanded}
+            onToggleExpanded={() => {}}
+            onClose={() => {}}
+          />
+        ),
       },
     ],
     {

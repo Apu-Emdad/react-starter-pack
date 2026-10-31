@@ -9,6 +9,7 @@ import {
 import {
   IconLayoutSidebarLeftCollapse,
   IconLayoutSidebarLeftExpand,
+  IconX,
 } from '@tabler/icons-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router';
@@ -21,10 +22,11 @@ import classes from './Sidebar.module.css';
 interface Props {
   expanded: boolean;
   onToggleExpanded: () => void;
+  onClose: () => void;
 }
 
 /** Collapsed, it shows only the icons. Parents then open their children in a flyout menu. */
-export const Sidebar = ({ expanded, onToggleExpanded }: Props) => {
+export const Sidebar = ({ expanded, onToggleExpanded, onClose }: Props) => {
   const role = useAppSelector((state) => state.auth.user?.role);
   const items = filterByRole(NAV_ITEMS, role);
 
@@ -56,6 +58,16 @@ export const Sidebar = ({ expanded, onToggleExpanded }: Props) => {
             )}
           </ActionIcon>
         </Tooltip>
+        <ActionIcon
+          variant="subtle"
+          color="gray"
+          size="md"
+          aria-label="Close navigation"
+          onClick={onClose}
+          hiddenFrom="sm"
+        >
+          <IconX size={18} />
+        </ActionIcon>
       </Group>
 
       <Stack gap={4} p="md">

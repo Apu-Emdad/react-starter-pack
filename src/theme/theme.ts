@@ -62,6 +62,7 @@ export const cssVariablesResolver: CSSVariablesResolver = () => ({
     '--mantine-color-dimmed': '#5E6280',
     '--mantine-color-default-border': '#E4E6F2',
     '--app-bg': '#F4F5FB',
+    '--app-shell-bg': '#E7E4FC',
     '--app-gradient':
       'linear-gradient(135deg, #4F46E5 0%, #7C3AED 55%, #C026D3 100%)',
   },
@@ -70,6 +71,7 @@ export const cssVariablesResolver: CSSVariablesResolver = () => ({
     '--mantine-color-dimmed': '#9A9FBF',
     '--mantine-color-default-border': '#25283F',
     '--app-bg': '#0B0C16',
+    '--app-shell-bg': '#141626',
     '--app-gradient':
       'linear-gradient(135deg, #4F46E5 0%, #7C3AED 55%, #C026D3 100%)',
   },
