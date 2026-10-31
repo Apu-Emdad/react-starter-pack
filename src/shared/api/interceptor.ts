@@ -10,7 +10,7 @@ declare module 'axios' {
 }
 
 export const API_URL: string =
-  import.meta.env.VITE_API_URL ?? 'http://localhost:3000';
+  import.meta.env.VITE_API_URL ?? 'http://localhost:5000';
 
 /** withCredentials sends the httpOnly refresh cookie to the API. */
 export const axios = baseAxios.create({

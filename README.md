@@ -36,7 +36,7 @@ A React dashboard starter with login, register, a users admin page and a dashboa
 You only need [Docker](https://docs.docker.com/get-docker/). Start the API first, then the web app.
 
 ```bash
-# 1. The API (PostgreSQL, Redis and the API on http://localhost:3000)
+# 1. The API (PostgreSQL, Redis and the API on http://localhost:5000)
 git clone https://github.com/Apu-Emdad/nestjs-starter-pack.git api
 cd api
 cp .env.example .env
@@ -46,16 +46,16 @@ docker compose up --build
 In a second terminal:
 
 ```bash
-# 2. The web app on http://localhost:5173
+# 2. The web app on http://localhost:5001
 git clone https://github.com/Apu-Emdad/react-starter-pack.git web
 cd web
 cp .env.example .env
 docker compose up --build
 ```
 
-Open `http://localhost:5173` and log in as `admin` with the password `12345678`. Press Ctrl+C in each terminal to stop.
+Open `http://localhost:5001` and log in as `admin` with the password `12345678`. Press Ctrl+C in each terminal to stop.
 
-The API's `WEB_ORIGIN` must be `http://localhost:5173`, which is the default. CORS and the refresh cookie depend on it.
+The API's `WEB_ORIGIN` must be `http://localhost:5001`, which is the default. CORS and the refresh cookie depend on it.
 
 ## Installation
 
@@ -111,7 +111,7 @@ cp .env.example .env
 
 Set `VITE_API_URL` to the address of your API. Vite writes this value into the build, so restart `yarn dev` (or rebuild the Docker image) after you change it.
 
-On the API side, set `WEB_ORIGIN` to this app's URL (`http://localhost:5173` for `yarn dev`), and `WEB_URL` too: the links in the API's emails open `<WEB_URL>/verify-email` and `<WEB_URL>/reset-password` here.
+On the API side, set `WEB_ORIGIN` to this app's URL (`http://localhost:5001` for `yarn dev`), and `WEB_URL` too: the links in the API's emails open `<WEB_URL>/verify-email` and `<WEB_URL>/reset-password` here.
 
 ### 6. Run the app
 
@@ -119,7 +119,7 @@ On the API side, set `WEB_ORIGIN` to this app's URL (`http://localhost:5173` for
 yarn dev
 ```
 
-Open `http://localhost:5173`.
+Open `http://localhost:5001`.
 
 ### 7. Commit your starting point
 
@@ -132,7 +132,7 @@ git commit -m "chore: start from react-starter-pack"
 
 - **Add a feature:** create `src/features/<name>/` with `api`, `components` and `pages`, then add its route in `src/app/router.tsx`. See [docs/architecture.md](docs/architecture.md#adding-a-feature).
 - **Add a form:** see [Forms](docs/architecture.md#forms).
-- **Run in Docker:** `docker compose up --build` serves the built app on `http://localhost:5173`. Stop `yarn dev` first, since both use that port.
+- **Run in Docker:** `docker compose up --build` serves the built app on `http://localhost:5001`. Stop `yarn dev` first, since both use that port.
 
 ## Scripts
 

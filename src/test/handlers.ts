@@ -1,7 +1,7 @@
 import { http, HttpResponse } from 'msw';
 import type { AuthUser } from '@/shared/api/types';
 
-export const API = 'http://localhost:3000';
+export const API = 'http://localhost:5000';
 
 export const testUser: AuthUser = {
   uid: 'user000001',
