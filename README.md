@@ -8,6 +8,7 @@ A React dashboard starter with login, register, a users admin page and a dashboa
 ## Features
 
 - **Auth:** login and register screens. The user and access token are saved in `localStorage` with `redux-persist`, so a page reload keeps the session. Without a saved token, the `httpOnly` refresh cookie restores it. An expired token is refreshed once, in the background, and the failed request is retried.
+- **Account self-service:** forgot and reset password, email verification from the email link, a dismissible "verify your email" banner with a resend link, and a profile page to change the user name, email and password. Verification is optional: unverified users can use everything.
 - **Protected routes:** `RequireAuth`, `GuestOnly` and `RequireRole` guards, and a redirect back to the page the user came from.
 - **Users admin:** list with search, role and status filters and paging, plus deactivate and delete with a confirm dialog (super admin only).
 - **Dashboard:** welcome banner, stat cards and a chart.
@@ -110,7 +111,7 @@ cp .env.example .env
 
 Set `VITE_API_URL` to the address of your API. Vite writes this value into the build, so restart `yarn dev` (or rebuild the Docker image) after you change it.
 
-On the API side, set `WEB_ORIGIN` to this app's URL (`http://localhost:5173` for `yarn dev`).
+On the API side, set `WEB_ORIGIN` to this app's URL (`http://localhost:5173` for `yarn dev`), and `WEB_URL` too: the links in the API's emails open `<WEB_URL>/verify-email` and `<WEB_URL>/reset-password` here.
 
 ### 6. Run the app
 
@@ -154,7 +155,8 @@ src/
   app/          providers, router, Redux store
   theme/        Mantine theme and global styles
   features/     one folder per business area
-    auth/       login, register, guards, session state
+    auth/       login, register, forgot/reset password, verify email, guards, session state
+    profile/    the user's own details and password
     users/      users admin page
     dashboard/  dashboard page
   shared/

@@ -66,7 +66,14 @@ const renderSidebar = ({
       route,
       preloadedState: {
         auth: {
-          user: { uid: 'user000001', userName: 'maya', email: 'm@x.com', role },
+          user: {
+            uid: 'user000001',
+            userName: 'maya',
+            email: 'm@x.com',
+            role,
+            emailVerified: true,
+            createdAt: '2026-10-01T00:00:00.000Z',
+          },
           accessToken: 'token',
           status: 'authenticated' as const,
         },

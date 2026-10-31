@@ -29,6 +29,8 @@ const admin: AuthUser = {
   userName: 'apu',
   email: 'apu@mail.com',
   role: ROLE.SUPER_ADMIN,
+  emailVerified: true,
+  createdAt: '2026-10-01T00:00:00.000Z',
 };
 const user = { ...admin, uid: 'user000001', role: ROLE.USER };
 const session = (u: AuthUser) => ({

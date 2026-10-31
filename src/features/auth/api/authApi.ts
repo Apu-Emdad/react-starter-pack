@@ -19,4 +19,16 @@ export const authApi = {
     (await axios.post<Result>('/auth/logout', null, noRefresh)).data,
 
   me: async () => (await axios.get<Result<AuthUser>>('/auth/me')).data.data,
+
+  verifyEmail: async (params: { token: string }) =>
+    (await axios.post<Result>('/auth/verify-email', params, noRefresh)).data,
+
+  resendVerification: async () =>
+    (await axios.post<Result>('/auth/resend-verification')).data,
+
+  forgotPassword: async (params: { email: string }) =>
+    (await axios.post<Result>('/auth/forgot-password', params, noRefresh)).data,
+
+  resetPassword: async (params: { token: string; password: string }) =>
+    (await axios.post<Result>('/auth/reset-password', params, noRefresh)).data,
 };

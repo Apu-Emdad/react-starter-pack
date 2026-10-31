@@ -10,6 +10,7 @@ import { LoginForm } from './LoginForm';
 const routes = [
   { path: '/login', element: <LoginForm /> },
   { path: '/dashboard', element: <p>Dashboard page</p> },
+  { path: '/forgot-password', element: <p>Forgot password page</p> },
 ];
 
 describe('LoginForm', () => {
@@ -21,6 +22,15 @@ describe('LoginForm', () => {
       await screen.findByText('User name or email is required'),
     ).toBeInTheDocument();
     expect(screen.getByText('Password is required')).toBeInTheDocument();
+  });
+
+  it('links to forgot password next to the password label', async () => {
+    renderRoutes(routes, { route: '/login' });
+
+    await userEvent.click(
+      screen.getByRole('link', { name: /forgot password/i }),
+    );
+    expect(await screen.findByText('Forgot password page')).toBeInTheDocument();
   });
 
   it('logs in, stores the session and goes to the dashboard', async () => {

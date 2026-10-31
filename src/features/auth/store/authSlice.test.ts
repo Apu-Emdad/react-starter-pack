@@ -6,6 +6,8 @@ const user = {
   userName: 'maya_r',
   email: 'maya@mail.com',
   role: 'USER' as const,
+  emailVerified: true,
+  createdAt: '2026-10-01T00:00:00.000Z',
 };
 
 describe('authSlice', () => {

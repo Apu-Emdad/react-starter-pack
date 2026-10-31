@@ -15,6 +15,8 @@ const state = {
       userName: 'admin',
       email: 'admin@example.com',
       role: ROLE.SUPER_ADMIN,
+      emailVerified: true,
+      createdAt: '2026-10-01T00:00:00.000Z',
     },
     accessToken: 'token',
     status: 'authenticated' as const,
