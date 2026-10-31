@@ -28,6 +28,10 @@ const authSlice = createSlice({
       state.accessToken = action.payload.accessToken;
       state.status = 'authenticated';
     },
+    /** After the user changes their own details or verifies their email. */
+    setUser(state, action: PayloadAction<AuthUser>) {
+      state.user = action.payload;
+    },
     clearSession(state) {
       state.user = null;
       state.accessToken = null;
@@ -36,5 +40,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { setSession, clearSession } = authSlice.actions;
+export const { setSession, setUser, clearSession } = authSlice.actions;
 export default authSlice.reducer;

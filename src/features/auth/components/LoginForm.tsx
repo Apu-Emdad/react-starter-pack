@@ -1,4 +1,4 @@
-import { Alert, Button, Stack, Text } from '@mantine/core';
+import { Alert, Anchor, Button, Group, Stack, Text } from '@mantine/core';
 import { IconArrowRight, IconLock, IconUser } from '@tabler/icons-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
@@ -57,7 +57,20 @@ export const LoginForm = () => {
           />
           <FormPasswordInput
             name="password"
-            label="Password"
+            label={
+              <Group justify="space-between" wrap="nowrap">
+                Password
+                <Anchor
+                  component={Link}
+                  to={ROUTES.forgotPassword}
+                  size="xs"
+                  fw={500}
+                >
+                  Forgot password?
+                </Anchor>
+              </Group>
+            }
+            labelProps={{ style: { width: '100%' } }}
             placeholder="Your password"
             leftSection={<IconLock size={16} />}
             autoComplete="current-password"

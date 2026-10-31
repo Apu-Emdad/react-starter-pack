@@ -7,10 +7,12 @@ export default defineConfig({
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },
-  server: { port: 5173 },
+  server: { port: 5001 },
   test: {
     globals: true,
     environment: 'jsdom',
+    // Same origin as the fake API (src/test/handlers.ts), so requests skip CORS checks.
+    environmentOptions: { jsdom: { url: 'http://localhost:5000' } },
     setupFiles: ['./src/test/setup.ts'],
     css: false,
   },

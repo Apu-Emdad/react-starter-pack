@@ -13,6 +13,8 @@ const admin = {
   userName: 'apu_emdad',
   email: 'apu@mail.com',
   role: ROLE.SUPER_ADMIN,
+  emailVerified: true,
+  createdAt: '2026-10-01T00:00:00.000Z',
 };
 const state = {
   auth: { user: admin, accessToken: 'token', status: 'authenticated' as const },

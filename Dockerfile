@@ -9,7 +9,7 @@ WORKDIR /app
 # Build stage: installs every dependency and builds the app into dist/.
 # Vite writes VITE_API_URL into the files at build time, so it is a build argument.
 FROM base AS build
-ARG VITE_API_URL=http://localhost:3000
+ARG VITE_API_URL=http://localhost:5000
 ENV VITE_API_URL=$VITE_API_URL
 COPY package.json yarn.lock .yarnrc.yml ./
 RUN --mount=type=cache,target=/root/.yarn/berry/cache yarn install --immutable

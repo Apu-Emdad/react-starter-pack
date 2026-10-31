@@ -8,11 +8,13 @@ import {
   Text,
   UnstyledButton,
 } from '@mantine/core';
-import { IconLogout } from '@tabler/icons-react';
+import { IconLogout, IconUser } from '@tabler/icons-react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { Link } from 'react-router';
 import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
 import { authApi } from '@/features/auth/api/authApi';
 import { clearSession } from '@/features/auth/store/authSlice';
+import { ROUTES } from '@/shared/constants/routes';
 import { getAvatarGradient, getInitials } from '@/shared/utils/format';
 import { ColorSchemeToggle } from '../ui/ColorSchemeToggle';
 import { Logo } from '../ui/Logo';
@@ -81,6 +83,13 @@ export const Header = ({ navOpened, onToggleNav }: Props) => {
                 </Badge>
               </Menu.Label>
               <Menu.Divider />
+              <Menu.Item
+                component={Link}
+                to={ROUTES.profile}
+                leftSection={<IconUser size={16} />}
+              >
+                Profile
+              </Menu.Item>
               <Menu.Item
                 color="red"
                 leftSection={<IconLogout size={16} />}
