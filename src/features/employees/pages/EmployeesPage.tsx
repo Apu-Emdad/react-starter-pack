@@ -5,7 +5,6 @@ import {
   Button,
   Card,
   Group,
-  Pagination,
   Stack,
   Text,
   Tooltip,
@@ -65,7 +64,6 @@ export const EmployeesPage = () => {
   });
 
   const { employees = [], total = 0 } = data ?? {};
-  const totalPages = Math.ceil(total / filters.pageSize);
 
   const handleDelete = (employee: Employee) =>
     modals.openConfirmModal({
@@ -109,21 +107,14 @@ export const EmployeesPage = () => {
           emptyTitle="No employees found"
           emptyDescription="Try a different search or clear the filters."
           minWidth={820}
+          pagination={{
+            page: filters.page,
+            pageSize: filters.pageSize,
+            total,
+            onChange: (page) => setFilters((prev) => ({ ...prev, page })),
+          }}
         />
       </Card>
-
-      {totalPages > 1 && (
-        <Group justify="space-between">
-          <Text size="sm" c="dimmed">
-            Page {filters.page} of {totalPages}
-          </Text>
-          <Pagination
-            value={filters.page}
-            total={totalPages}
-            onChange={(page) => setFilters((prev) => ({ ...prev, page }))}
-          />
-        </Group>
-      )}
     </Stack>
   );
 };

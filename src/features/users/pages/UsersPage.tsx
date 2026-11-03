@@ -4,7 +4,6 @@ import {
   Badge,
   Card,
   Group,
-  Pagination,
   Stack,
   Text,
   Tooltip,
@@ -108,21 +107,14 @@ export const UsersPage = () => {
           onRetry={refetch}
           emptyTitle="No users found"
           emptyDescription="Try a different search or clear the filters."
+          pagination={{
+            page: filters.page,
+            pageSize: filters.pageSize,
+            total,
+            onChange: (page) => setFilters((prev) => ({ ...prev, page })),
+          }}
         />
       </Card>
-
-      {total > filters.pageSize && (
-        <Group justify="space-between">
-          <Text size="sm" c="dimmed">
-            Page {filters.page} of {Math.ceil(total / filters.pageSize)}
-          </Text>
-          <Pagination
-            value={filters.page}
-            total={Math.ceil(total / filters.pageSize)}
-            onChange={(page) => setFilters((prev) => ({ ...prev, page }))}
-          />
-        </Group>
-      )}
     </Stack>
   );
 };
